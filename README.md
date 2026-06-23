@@ -6,41 +6,19 @@ A futuristic, space-themed Employee Leave Management web app built with **HTML, 
 
 ---
 
-## ✨ Features
+## ❓ Problem
 
-### 🤖 AI Agents (Multi-Agent Workflow)
-1. **Leave Validation Agent** — Checks duration, overlapping leaves, reason-type match, and request frequency.
-2. **Approval Recommendation Agent** — Suggests Approve / Review / Reject with a confidence score.
-3. **Analytics & Reporting Agent** — Shows total requests, approval rate, average AI confidence, and leave-type distribution chart.
+Manual leave management (paper forms, messages, spreadsheets) is slow, error-prone, and gives no useful feedback to employees or admins. There is no record of who approved/rejected what, no way to spot risky requests (overlaps, too-frequent leaves), and no overview of company-wide leave trends. Admins have to read every request manually with no support.
 
-### 🧠 Capstone Concepts Covered
-- ✅ Confidence Score
-- ✅ Explainable AI (reasons shown for every AI decision)
-- ✅ Audit Trail (full action history per request + global log)
-- ✅ Human-in-the-Loop (Admin always makes the final approve/reject decision)
+## 💡 Solution
 
----
+This project solves it with a lightweight web app that adds **3 rule-based AI Agents** on top of a normal leave workflow:
+- An agent **validates** every leave request and gives it a confidence score with reasons.
+- A second agent **recommends** Approve / Review / Reject — but the **human Admin always makes the final call**.
+- A third agent turns all leave data into **live analytics** (totals, approval rate, leave-type chart).
 
-## 🛠️ Tech Stack
-- HTML5
-- CSS3 (custom space-themed animations)
-- Vanilla JavaScript
-- Browser LocalStorage (data persistence)
+No paid AI APIs are used — all "intelligence" is transparent, explainable, rule-based JavaScript logic, so the project is 100% free to run and fully reproducible.
 
 ---
 
-## 🚀 How to Run Locally
-1. Download/clone this repository
-2. Open `index.html` in any browser
-3. Login as **User** or **Admin** (use Quick Demo Login for Admin)
-
----
-
-## 👤 Roles
-- **Employee:** Apply for leave, view AI insights & audit trail, cancel pending requests
-- **Admin:** View AI recommendation, approve/reject requests, view analytics & global audit log
-
----
-
-## 📌 Project Status
-✅ Completed — Capstone Project Submission
+## 🏗️ Architecture
