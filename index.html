@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Employee Leave Management
+</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="space-background">
+
+<div class="holo-grid"></div>
+
+<div class="earth"></div>
+
+<div class="mars"></div>
+
+<div class="blackhole"></div>
+
+<div class="rocket">
+🚀
+</div>
+
+<div class="satellite">
+🛰️
+</div>
+
+<div class="astronaut">
+👨‍🚀
+</div>
+
+<div id="stars"></div>
+
+<div class="meteor meteor1"></div>
+<div class="meteor meteor2"></div>
+<div class="meteor meteor3"></div>
+
+</div>
+
+<!-- WELCOME PAGE -->
+
+<section id="welcomePage"
+class="page">
+
+<div class="top-bar">
+
+<div class="logo">
+
+🌌 ELM SYSTEM
+
+</div>
+
+<div class="clock"
+id="clock">
+
+00:00:00
+
+</div>
+
+</div>
+
+<div class="welcome-container">
+
+<h1>
+
+WELCOME TO <br>
+
+EMPLOYEE LEAVE <br>
+
+MANAGEMENT APPLICATION
+
+</h1>
+
+<p>
+
+Advanced Futuristic Leave Management System
+
+</p>
+
+<div class="button-group">
+
+<button class="user-btn"
+onclick="openLogin('user')">
+
+👤 USER LOGIN
+
+</button>
+
+<button class="admin-btn"
+onclick="openLogin('admin')">
+
+🛡️ ADMIN LOGIN
+
+</button>
+
+</div>
+
+<!-- LOGIN -->
+
+<div class="login-panel"
+id="loginPanel">
+
+<!-- ADMIN QUICK DEMO LOGIN -->
+
+<div class="demo-hint hidden"
+id="adminDemoHint">
+
+<p>
+
+💡 Demo Access: Click below to auto-fill admin credentials
+
+</p>
+
+<button type="button"
+class="demo-btn"
+onclick="quickAdminLogin()">
+
+⚡ Quick Demo Login
+
+</button>
+
+</div>
+
+<div class="input-box">
+
+<label>
+👤 Username
+</label>
+
+<input type="text"
+id="loginUsername"
+placeholder="Enter Username">
+
+</div>
+
+<div class="input-box">
+
+<label>
+🔒 Password
+</label>
+
+<input type="password"
+id="loginPassword"
+placeholder="Enter Password">
+
+</div>
+
+<button class="submit-btn"
+onclick="loginUser()">
+
+🚀 ACCESS SYSTEM
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EMPLOYEE PAGE -->
+
+<section id="employeePage"
+class="page hidden">
+
+<div class="top-bar">
+
+<div class="logo">
+
+🚀 EMPLOYEE DASHBOARD
+
+</div>
+
+<div class="top-right">
+
+<div class="clock"
+id="employeeClock">
+
+00:00:00
+
+</div>
+
+<div class="menu-btn"
+onclick="toggleMenu('employeeMenu')">
+
+⋮
+
+</div>
+
+<div class="menu-dropdown"
+id="employeeMenu">
+
+<div onclick="logout()">
+
+🚪 Logout
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<h1>
+
+EMPLOYEE LEAVE MANAGEMENT
+
+</h1>
+
+<form id="leaveForm">
+
+<div class="input-box">
+
+<label>
+👤 Employee Name
+</label>
+
+<input type="text"
+id="name"
+placeholder="Only characters allowed">
+
+</div>
+
+<div class="input-box">
+
+<label>
+📋 Leave Type
+</label>
+
+<select id="leaveType">
+
+<option value="">
+Choose Reason
+</option>
+
+<option>
+Medical Leave
+</option>
+
+<option>
+Urgent Work
+</option>
+
+<option>
+Family Function
+</option>
+
+<option>
+Personal Work
+</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+
+<label>
+📝 Additional Reason
+</label>
+
+<textarea id="reason"
+placeholder="Only characters allowed"></textarea>
+
+</div>
+
+<div class="date-section">
+
+<div class="input-box">
+
+<label>
+📅 From Date
+</label>
+
+<input type="date"
+id="fromDate">
+
+</div>
+
+<div class="input-box">
+
+<label>
+📅 To Date
+</label>
+
+<input type="date"
+id="toDate">
+
+</div>
+
+</div>
+
+<button type="submit"
+class="submit-btn">
+
+🚀 APPLY LEAVE
+
+</button>
+
+</form>
+
+<div id="leaveList"></div>
+
+</div>
+
+</section>
+
+<!-- ADMIN PAGE -->
+
+<section id="adminPage"
+class="page hidden">
+
+<div class="top-bar">
+
+<div class="logo">
+
+🛡️ ADMIN DASHBOARD
+
+</div>
+
+<div class="top-right">
+
+<div class="clock"
+id="adminClock">
+
+00:00:00
+
+</div>
+
+<div class="menu-btn"
+onclick="toggleMenu('adminMenu')">
+
+⋮
+
+</div>
+
+<div class="menu-dropdown"
+id="adminMenu">
+
+<div onclick="toggleAnalytics()">
+
+📊 Analytics
+
+</div>
+
+<div onclick="toggleAuditLog()">
+
+🧾 Audit Log
+
+</div>
+
+<div onclick="logout()">
+
+🚪 Logout
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="admin-header">
+
+<h1>
+
+ADMIN CONTROL PANEL
+
+</h1>
+
+<button class="clear-btn"
+onclick="clearAllRequests()">
+
+🗑 CLEAR ALL
+
+</button>
+
+</div>
+
+<!-- ANALYTICS / REPORTING AGENT -->
+
+<div class="analytics-panel hidden"
+id="analyticsPanel">
+
+<h2 class="section-title">📊 Analytics &amp; Reporting Agent</h2>
+
+<div class="analytics-grid"
+id="analyticsGrid"></div>
+
+<div class="chart-block">
+
+<h3>Leave Type Distribution</h3>
+
+<div id="typeChart"
+class="bar-chart"></div>
+
+</div>
+
+</div>
+
+<!-- AUDIT TRAIL AGENT LOG -->
+
+<div class="audit-log-panel hidden"
+id="auditLogPanel">
+
+<h2 class="section-title">🧾 Global Audit Trail</h2>
+
+<div id="globalAuditList"
+class="audit-log-list"></div>
+
+</div>
+
+<div id="adminLeaveList"></div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
